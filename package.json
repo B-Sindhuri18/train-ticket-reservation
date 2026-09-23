@@ -48,7 +48,7 @@
   "registeredBy": "arn:aws:iam::707408838977:root",
   "tags": []
 }
-- name: Update ECS Task Definition
+  name: Update ECS Task Definition
         run: |
           ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
           sed -i "s|<IMAGE>|$ACCOUNT_ID.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}|g" task-definition.json
